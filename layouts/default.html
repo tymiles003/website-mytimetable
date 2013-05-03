@@ -92,11 +92,22 @@
     oB.settings.fadeTime = 0;
 
     $('body').scrollspy();
-    $('a').click(function(){
-        $('html, body').animate({
-            scrollTop: $( $(this).attr('href') ).offset().top
-        }, 500);
-        return false;
+
+    $('a').click(function() {
+        // trigger animation on internal links
+        if ($(this).attr('href').substr(0,1) === '#') {
+            if (history.pushState) {
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 500);
+
+                history.pushState(null, null, $(this).attr('href'));
+
+                return false;
+            }
+        }
+
+        return true;
     });
 </script>
 </body>
