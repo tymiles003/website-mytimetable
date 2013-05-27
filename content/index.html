@@ -4,10 +4,13 @@ title: Home
 
 <header class="banner" id="home">
     <div class="container">
-        <div class="banner-text">
+        <div class="banner-text pull-left">
             <h1>MyTimetable</h1>
 
             <p>Up-to-date and personalised timetables, <br>always &amp; everywhere...</p>
+        </div>
+
+        <div class="span4 pull-right" id="blog">
         </div>
     </div>
 </header>
@@ -366,4 +369,21 @@ title: Home
         </div>
     </div>
 </section>
+
+<section id="mobile-blog" class="visible-phone greybg">
+    <h2>Recent blog posts</h2>
+
+    <div class="container">
+        <div class="row text-left">
+            <div class="span12">
+                <div id="blog-mobile"></div>
+
+                <p><a href="http://blog.eveoh.nl" class="button">Visit our blog</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="/assets/js/eveoh.js"></script>
+<script type="text/javascript" src="http://blog.eveoh.nl/loadPosts.js"></script>
 
