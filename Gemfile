@@ -17,3 +17,5 @@ gem 'nokogiri'
 
 # rsync deploy
 gem 'systemu'
+
+gem 'guard-nanoc'

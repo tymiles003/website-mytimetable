@@ -31,6 +31,16 @@ compile '/assets/*' do
   # don’t filter or layout
 end
 
+compile '/disclaimer' do
+  filter :erb
+  layout 'policy'
+end
+
+compile '/privacy-policy' do
+  filter :erb
+  layout 'policy'
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -50,7 +60,7 @@ end
 
 route '/assets/fonts/*/' do
   # /fonts/foo-eot/ -> /fonts/foo.eot
-  item.identifier.sub(/-.+\/$/, '') + '.' + item[:extension]
+  item.identifier.gsub(/(.*)(-)(.*)\//, '\1') + '.' + item[:extension]
 end
 
 route '/assets/js/*/' do

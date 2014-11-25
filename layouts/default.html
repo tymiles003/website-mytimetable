@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MyTimetable - <%=h @item[:title] %></title>
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="/assets/style/eveoh.css" media="screen">
 
     <link rel="stylesheet"
-          href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600">
+          href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -30,7 +29,6 @@
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(ga, s);
         })();
-
     </script>
 
     <script type="text/javascript">
@@ -52,49 +50,71 @@
 
 <body>
 <header class="hidden-phone hidden-print">
-    <div class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="120">
         <div class="container">
-            <a class="navbar-brand" href="/">MyTimetable</a>
-            <nav class="nav-collapse collapse" role="navigation">
-                <ul class="nav pull-right">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <!--<span class="visible-xs-inline">xs</span>-->
+                    <!--<span class="visible-sm-inline">sm</span>-->
+                    <!--<span class="visible-md-inline">md</span>-->
+                    <!--<span class="visible-lg-inline">lg</span>-->
+                    <div class="logo-mytimetable animated fadeInLeft">MyTimetable</div>
+                    <!--<img src="/assets/img/logo-eveoh.png" alt="Eveoh logo" class="eveoh-logo animated fadeInLeft"/>-->
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#customers">Customers</a></li>
-                    <li><a href="#contact-us">Contact us</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
 
 <%= yield %>
 
 <footer>
-    &copy; 2010 &ndash;
-    <script>document.write(new Date().getFullYear())</script>
-    &nbsp;<a href="https://eveoh.nl">Eveoh</a> | <a href="/privacy-policy/">Privacy policy</a> | <a href="/disclaimer/">Disclaimer</a>
-    <br>
-    Chamber of Commerce: 27379244, The Hague, The Netherlands / VAT ID: NL822477014B01
+    <div class="container small">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                &copy; 2010 &ndash;
+                <script>document.write(new Date().getFullYear())</script>
+                &nbsp; Eveoh |
+                <a href="/privacy-policy/">Privacy policy</a> |
+                <a href="/disclaimer/">Disclaimer</a>
+                <br>
+                Chamber of Commerce: 27379244, The Hague, The Netherlands / VAT ID: NL822477014B01
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <script type="text/javascript">
     if (typeof jQuery == 'undefined') {
         document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
     }
 </script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/orangebox.js"></script>
-<script type="text/javascript">
-    oB.settings.addThis = false;
-    oB.settings.contentMaxSize = [0.7, 0.7];
-    oB.settings.fadeTime = 0;
 
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
     $('body').scrollspy();
 
-    $('a').click(function() {
+    $('a').click(function () {
         // trigger animation on internal links
-        if ($(this).attr('href').substr(0,1) === '#') {
+        if ($(this).attr('href').substr(0, 1) === '#') {
             if (history.pushState) {
                 $('html, body').animate({
                     scrollTop: $($(this).attr('href')).offset().top
@@ -107,6 +127,15 @@
         }
 
         return true;
+    });
+
+    // Close the mobile menu after clicking a navigation link
+    var mainNavCollapse = $('#main-nav-collapse');
+
+    $('#main-nav-collapse a').click(function () {
+        if ($(".navbar-toggle").is(":visible")) {
+            mainNavCollapse.collapse('hide');
+        }
     });
 </script>
 </body>

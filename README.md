@@ -1,53 +1,75 @@
 # MyTimetable website
 It's our MyTimetable website!
 
-## Install prerequisites
+## Install global prerequisites
+* Make sure Ruby has been installed
+
+```
+~ ruby --version
+ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-darwin14.0]
+```
+
 * Update/install rubygems
 
 ```
-gem update --system
+~ gem update --system
 ```
 
 * Install bundler
 
 ```
-gem install bundler
+~ gem install bundler
 ```
 
-* Update Ruby gems
+* Install Nanoc
 
 ```
-bundle install
+~ gem install nanoc
+````
+
+* Install NodeJS (e.g. using Homebrew)
+
+```
+~ brew install node
 ```
 
-* Install NodeJS and packages
+## Install website prerequisites
+
+In the project directory:
+
+* Install/update Ruby gems
 
 ```
-brew install node
-npm install
+~ bundle install
 ```
 
-## Compile the site with Nanoc
+* Install NodeJS packages
+
 ```
-nanoc compile
+~ npm install
 ```
 
-When changes are not visible, empty the `/output` and `/tmp` folders.
-
-## Autocompile and view the site
+## View the site
 ```
-nanoc autocompile
+~ nanoc view
 ```
 
 The site is now available at http://localhost:3000/.
 
+## Autocompile changes
+```
+~ bundle exec guard
+```
+
+When changes are not visible, empty the `/output` and `/tmp` folders.
+
 ## Deploy to staging
 ```
-nanoc deploy --target staging
+~ nanoc deploy --target staging
 ```
 
 ## Deploy to production
 ```
-nanoc deploy --target prod
+~ nanoc deploy --target prod
 ```
 
