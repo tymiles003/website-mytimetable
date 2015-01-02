@@ -14,6 +14,7 @@
 @navbar-default-toggle-hover-bg: transparent;
 @navbar-default-toggle-icon-bar-bg: #222;
 @navbar-default-toggle-border-color: transparent;
+@link-color: #0081c6;
 
 /* Main page */
 body {
@@ -60,7 +61,7 @@ h2 {
 }
 
 .btn:hover, .btn:focus {
-    border-color: #428bca;
+    border-color: #0081c6;
     opacity: 1;
     color: #222;
     text-decoration: none;
@@ -90,14 +91,22 @@ h2 {
         transition: all 0.15s ease-in-out;
     }
 
-    /* Adjust for Eveoh logo */
+    /* Adjust for MyTimetable logo */
     .navbar-brand {
-        padding: 6px 15px;
+        padding: 0 15px;
 
-        .eveoh-logo {
-            height: 38px;
-            max-height: 38px;
+        .logo-mytimetable {
+            font-family: "Open Sans", sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 50px;
+            letter-spacing: -0.05em;
+            vertical-align: middle;
         }
+    }
+
+    .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
+        color: #fff;
     }
 
     /* Same margin as brand logo, compensate. */
@@ -114,29 +123,15 @@ h2 {
     height: 250px;
 
     .banner-text {
-        h1 {
-            text-align: left;
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 60px;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-weight: bold;
-            line-height: 1;
-            letter-spacing: -0.05em;
-            padding-bottom: 14px;
-            margin-bottom: 17px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-            -webkit-animation: fadeFromAbove 1s ease;
-            -moz-animation: fadeFromAbove 1s ease;
-            margin-top: 100px;
-            width: 400px;
-            color: #fff;
-        }
+        margin-top: 60px;
 
         p {
             display: inline;
-            font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 20px;
+            font-family: "Helvetica Neue", 'Open Sans', Arial, sans-serif;;
+            color: #fff;
+            font-size: 25px;
+            background-color: rgba(0, 129, 198, 0.85);
+            line-height: 38px;
         }
     }
 }
@@ -183,7 +178,13 @@ h2 {
     padding: 20px 0;
 }
 
-/* Services */
+.img-product-grid .img-product {
+    padding: 15px 0;
+}
+
+figcaption {
+    font-style: italic;
+}
 
 /* Customers */
 .logo-customer {
@@ -197,56 +198,14 @@ h2 {
     }
 }
 
-/* Team */
-.team {
-    .photo-team {
-        display: inline-block;
-        margin: 20px 0;
-
-        .name {
-            margin: 10px 0 0;
-            font-weight: bold;
-        }
-
-        .title {
-            margin-bottom: 15px;
-        }
-
-        img {
-            width: 65%;
-        }
-
-        .social {
-            a {
-                background-image: url('/assets/img/social-sprites.png');
-                display: inline-block;
-                height: 32px;
-                width: 32px;
-
-                &.twitter {
-                    background-position: -38px -38px;
-                }
-                &.twitter:hover {
-                    background-position: -38px -2px;
-                }
-                &.linkedin {
-                    background-position: -2px -38px;
-                }
-                &.linkedin:hover {
-                    background-position: -2px -2px;
-                }
-            }
-        }
-    }
-}
-
 /* Contact */
 
 /* Footer */
 footer {
-    background-color: rgba(39, 62, 84, 0.82);
+    background-color: #0081c6;
     color: #fff;
     padding: 30px 0;
+    -webkit-font-smoothing: auto;
 
     a, a:hover, a:active {
         color: #fff;
@@ -286,6 +245,10 @@ footer {
         background-color: #fff;
         background-color: rgba(255, 255, 255, 0.95);
         color: @gray;
+
+        .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
+            color: #0081c6;
+        }
     }
 
     /* Banner */
@@ -301,18 +264,6 @@ footer {
     .logo-customer {
         width: 150px;
         margin: 8px;
-    }
-
-    /* Team */
-    .team {
-        .photo-team {
-            display: inline-block;
-            margin: 20px;
-
-            img {
-                width: 75%;
-            }
-        }
     }
 }
 
@@ -379,6 +330,10 @@ footer {
         background-color: #fff;
         background-color: rgba(255, 255, 255, 0.95);
         border-bottom: 1px solid @gray-lighter;
+
+        .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
+            color: #0081c6;
+        }
     }
 
     .navbar-collapse.in, .navbar-collapse.collapsing {
@@ -421,34 +376,4 @@ footer {
         width: 170px;
         margin: 10px;
     }
-
-    /* Team */
-    .team {
-        .photo-team {
-            display: inline-block;
-            margin: 20px 85px;
-
-            img {
-                width: 90%;
-            }
-        }
-    }
-}
-
-/* Fixme */
-.navbar .navbar-brand {
-    padding: 0px 15px;
-}
-
-.navbar .navbar-brand .logo-mytimetable {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 50px;
-    letter-spacing: -0.05em;
-    vertical-align: middle;
-}
-
-.navbar .navbar-brand .logo-mytimetable, .navbar .navbar-brand:hover .logo-mytimetable {
-    color: #16528e;
 }
