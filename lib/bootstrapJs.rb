@@ -7,6 +7,7 @@ class BootstrapJsFilter < Nanoc3::Filter
   def run(content, cmd, params={})
     puts "Processing Bootstrap JS..."
     FileUtils.mkdir_p './output/assets/js'
+    FileUtils.mkdir './tmp' unless File.exists?('./tmp')
     FileUtils.touch('./tmp/bootstrap.js')
 
     File.open('./tmp/bootstrap.js','w') do |mergedFile|
@@ -32,7 +33,8 @@ class BootstrapJsFilter < Nanoc3::Filter
         end
     end
 
-    system "node node_modules/uglify-js/bin/uglifyjs tmp/bootstrap.js -c > output/assets/js/bootstrap.min.js"
+    system "node node_modules/uglify-js/bin/uglifyjs tmp/bootstrap.js -c -o output/assets/js/bootstrap.min.js"
+
     File.delete('./tmp/bootstrap.js');
   end
 end
