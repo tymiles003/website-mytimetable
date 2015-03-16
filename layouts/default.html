@@ -63,14 +63,14 @@
                     <!--<span class="visible-sm-inline">sm</span>-->
                     <!--<span class="visible-md-inline">md</span>-->
                     <!--<span class="visible-lg-inline">lg</span>-->
-                    <div class="logo-mytimetable animated fadeInLeft">MyTimetable</div>
+                    <div class="logo-mytimetable">MyTimetable</div>
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="main-nav-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a id="menuitem-features" href="/features/">Features</a></li>
                     <li><a href="#customers">Customers</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -106,35 +106,5 @@
 </script>
 
 <script src="/assets/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    $('body').scrollspy();
-
-    $('a').click(function () {
-        // trigger animation on internal links
-        if ($(this).attr('href').substr(0, 1) === '#') {
-            if (history.pushState) {
-                $('html, body').animate({
-                    scrollTop: $($(this).attr('href')).offset().top
-                }, 500);
-
-                history.pushState(null, null, $(this).attr('href'));
-
-                return false;
-            }
-        }
-
-        return true;
-    });
-
-    // Close the mobile menu after clicking a navigation link
-    var mainNavCollapse = $('#main-nav-collapse');
-
-    $('#main-nav-collapse a').click(function () {
-        if ($(".navbar-toggle").is(":visible")) {
-            mainNavCollapse.collapse('hide');
-        }
-    });
-</script>
 </body>
 </html>
