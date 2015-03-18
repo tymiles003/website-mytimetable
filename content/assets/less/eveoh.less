@@ -7,6 +7,8 @@
 /* Variables */
 @font-family-sans-serif: 'Open Sans', sans-serif;
 
+@navbar-height: 70px;
+@navbar-height-xs: 50px;
 @navbar-default-color: @gray;
 @navbar-default-bg: transparent;
 @navbar-default-border: none;
@@ -18,101 +20,112 @@
 
 /* Main page */
 body {
-    -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
-    line-height: 24px;
-    font-size: 15px;
+  line-height: 24px;
+  font-size: 15px;
 }
 
 section {
-    padding: 30px 0;
+  padding: 30px 0;
 }
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .greybg {
-    background-color: #f7f7f9;
+  background-color: #f7f7f9;
 }
 
 ::-moz-selection, ::selection {
-    background: #f39c12;
-    text-shadow: none;
+  background: #f39c12;
+  text-shadow: none;
 }
 
 /* Buttons */
 .btn {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    border: 1px solid #f39c12;
-    color: #222;
-    border-radius: 3px;
-    margin: 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  border: 1px solid #f39c12;
+  color: #222;
+  border-radius: 3px;
+  margin: 15px 0;
 
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .btn:hover, .btn:focus {
-    border-color: #0081c6;
-    opacity: 1;
-    color: #222;
-    text-decoration: none;
+  border-color: #0081c6;
+  opacity: 1;
+  color: #222;
+  text-decoration: none;
 }
 
 .btn-md {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .btn-lg {
-    padding: 20px 40px;
+  padding: 20px 40px;
 }
 
 /* Main navigation */
 .navbar {
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
-    a {
-        -webkit-transition: all 0.15s ease-in-out;
-        -moz-transition: all 0.15s ease-in-out;
-        -ms-transition: all 0.15s ease-in-out;
-        -o-transition: all 0.15s ease-in-out;
-        transition: all 0.15s ease-in-out;
+  @media (max-width: @screen-xs-max) {
+    min-height: @navbar-height-xs;
+  }
+
+  a {
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+  }
+
+  /* Adjust for MyTimetable logo */
+  .navbar-brand {
+    padding: 0 15px;
+
+    @media (max-width: @screen-xs-max) {
+      height: @navbar-height-xs;
     }
 
-    /* Adjust for MyTimetable logo */
-    .navbar-brand {
-        padding: 0 15px;
+    .logo-mytimetable {
+      font-family: "Open Sans", sans-serif;
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: @navbar-height;
+      letter-spacing: -0.05em;
+      vertical-align: middle;
 
-        .logo-mytimetable {
-            font-family: "Open Sans", sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            line-height: 50px;
-            letter-spacing: -0.05em;
-            vertical-align: middle;
-        }
+      @media (max-width: @screen-xs-max) {
+        line-height: @navbar-height-xs;
+      }
     }
+  }
 
-    .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
-        color: #fff;
-    }
-
-    /* Same margin as brand logo, compensate. */
-    .navbar-toggle {
-        margin-right: 5px;
-    }
+  /* Same margin as brand logo, compensate. */
+  .navbar-toggle {
+    margin-right: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }
 
 /* Banner */
@@ -178,22 +191,22 @@ h2 {
 }
 
 .try-mytimetable-now-btn-wrapper {
-    margin-top: 175px;
+  margin-top: 175px;
 }
 
 .try-mytimetable-now-btn {
-    -webkit-transition: all 0.15s ease-in-out;
-    -moz-transition: all 0.15s ease-in-out;
-    -ms-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none
 }
 
 .try-mytimetable-now-btn:hover {
-    background-color: white;
+  background-color: white;
 }
 
 .feature-list {
@@ -222,144 +235,144 @@ h2 {
 
 /* Blog */
 .mobile-blog {
-    .blogposts {
-        margin-bottom: 20px;
-        list-style-type: none;
-        padding-left: 0;
+  .blogposts {
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding-left: 0;
 
-        li {
-            margin-bottom: 10px;
-        }
+    li {
+      margin-bottom: 10px;
     }
+  }
 }
 
 /* Lead text */
 .lead {
-    font-family: "Helvetica Neue", 'Open Sans', Arial, sans-serif;
+  font-family: "Helvetica Neue", 'Open Sans', Arial, sans-serif;
 }
 
 /* Products */
 .product {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .img-product-grid .img-product {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 figcaption {
-    font-style: italic;
+  font-style: italic;
 }
 
 /* Customers */
 .logo-customer {
-    width: 120px;
-    display: inline-block;
-    padding: 5px;
+  width: 120px;
+  display: inline-block;
+  padding: 5px;
 
-    img {
-        background-color: #fff;
-        border: 1px solid #d3d3d3;
-    }
+  img {
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+  }
 }
 
 /* Contact */
 
 /* Footer */
 footer {
-    background-color: #0081c6;
+  background-color: #0081c6;
+  color: #fff;
+  padding: 30px 0;
+  -webkit-font-smoothing: auto;
+
+  a, a:hover, a:active {
     color: #fff;
-    padding: 30px 0;
-    -webkit-font-smoothing: auto;
+  }
 
-    a, a:hover, a:active {
-        color: #fff;
-    }
+  a {
+    text-decoration: underline;
+  }
 
-    a {
-        text-decoration: underline;
-    }
-
-    a:hover, a:active {
-        text-decoration: none;
-    }
+  a:hover, a:active {
+    text-decoration: none;
+  }
 }
 
 /* Policies */
 .privacy-policy, .disclaimer {
-    h2 {
-        text-align: left;
-    }
+  h2 {
+    text-align: left;
+  }
 }
 
 /* Minimum size of mobile screens is 320px */
 
 /* sm and up [768px, ->) */
 @media (min-width: @screen-sm-min) {
-    /* Main page */
-    section {
-        padding: 35px 0;
-    }
+  /* Main page */
+  section {
+    padding: 35px 0;
+  }
 
-    .navbar {
-        border-bottom: 1px solid #eeeeee;
-    }
+  .navbar {
+    border-bottom: 1px solid #eeeeee;
+  }
 
-    /* By default, we have a semi-transparent background. White on larger screens. */
-    .navbar {
-        background-color: #fff;
-        background-color: rgba(255, 255, 255, 0.95);
-        color: @gray;
+  /* By default, we have a semi-transparent background. White on larger screens. */
+  .navbar {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: @gray;
 
-        .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
-            color: #0081c6;
-        }
+    .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
+      color: #0081c6;
     }
+  }
 
-    /* Customers */
-    .logo-customer {
-        width: 150px;
-        margin: 8px;
-    }
+  /* Customers */
+  .logo-customer {
+    width: 150px;
+    margin: 8px;
+  }
 }
 
 /* md and up [992px, ->) */
 @media (min-width: @screen-md-min) {
-    /* Main page */
-    section {
-        padding: 40px 0;
-    }
+  /* Main page */
+  section {
+    padding: 40px 0;
+  }
 }
 
 /* xs only [0, 768px) */
 @media (max-width: @screen-xs-max) {
-    // Change to semi-transparent background after affix kicked in
-    nav.affix {
-        background-color: #fff;
-        background-color: rgba(255, 255, 255, 0.95);
-        border-bottom: 1px solid @gray-lighter;
+  // Change to semi-transparent background after affix kicked in
+  nav.affix {
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid @gray-lighter;
 
-        .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
-            color: #0081c6;
-        }
+    .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
+      color: #0081c6;
     }
+  }
 
+  .navbar-collapse.in, .navbar-collapse.collapsing {
+    background-color: #fff;
+  }
+
+  nav.affix-top {
     .navbar-collapse.in, .navbar-collapse.collapsing {
-        background-color: #fff;
+      border-bottom: 1px solid @gray-lighter;
     }
-
-    nav.affix-top {
-        .navbar-collapse.in, .navbar-collapse.collapsing {
-            border-bottom: 1px solid @gray-lighter;
-        }
-    }
+  }
 }
 
 @media (max-width: @screen-xs-max) and (orientation: landscape) {
-    /* On small devices in landscape mode, use smaller product images to improve readability */
-    .img-product {
-        width: 65%;
-    }
+  /* On small devices in landscape mode, use smaller product images to improve readability */
+  .img-product {
+    width: 65%;
+  }
 }
 
 /* sm only [768px, 992px) */
@@ -374,14 +387,14 @@ footer {
 
 /* lg [1200px, ->) */
 @media (min-width: @screen-lg-min) {
-    /* Main page */
-    section {
-        padding: 50px 0;
-    }
+  /* Main page */
+  section {
+    padding: 50px 0;
+  }
 
-    /* Customers */
-    .logo-customer {
-        width: 170px;
-        margin: 10px;
-    }
+  /* Customers */
+  .logo-customer {
+    width: 170px;
+    margin: 10px;
+  }
 }
