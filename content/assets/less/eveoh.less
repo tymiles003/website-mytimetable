@@ -175,6 +175,30 @@ h2 {
     margin-top: 8px;
     margin-bottom: 8px;
   }
+
+  #menuitem-demo a {
+//    background-color: @navbar-default-color;
+//    color: @navbar-default-bg;
+    padding: 7px 15px;
+    border: 1px solid @navbar-default-color;
+    border-radius: 4px;
+
+    margin-top: 17px;
+    margin-left: 15px;
+
+    @media (max-width: @screen-xs-max) {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 15px;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid #fff;
+      background-color: #fff;
+      color: @navbar-default-bg;
+    }
+  }
 }
 
 /* Banner */
