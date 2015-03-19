@@ -45,11 +45,19 @@
             s.parentNode.insertBefore(g, s);
         })();
     </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+    </script>
 </head>
 
 <body>
 <header class="hidden-phone hidden-print">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="120">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="25">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
@@ -59,25 +67,19 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <!--<span class="visible-xs-inline">xs</span>-->
-                    <!--<span class="visible-sm-inline">sm</span>-->
-                    <!--<span class="visible-md-inline">md</span>-->
-                    <!--<span class="visible-lg-inline">lg</span>-->
                     <div class="logo-mytimetable">MyTimetable</div>
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="main-nav-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="menuitem-introduction" href="/">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                        <span class="sr-only">Home</span>
-                    </a></li>
-                    <li><a id="menuitem-features" href="/features/">Features</a></li>
-                    <li><a id="menuitem-integrations" href="/integrations/">Integrations</a></li>
-                    <li><a id="menuitem-support" href="/support/">Support</a></li>
-                    <li><a id="menuitem-hosting" href="/hosting/">Hosting</a></li>
-                    <li><a id="menuitem-try-now" href="https://demo.eveoh.nl" target="_blank">Try it now</a></li>
+                    <li id="menuitem-introduction"><a href="/">Introduction</a></li>
+                    <li id="menuitem-features"><a href="/features/">Features</a></li>
+                    <li id="menuitem-integrations"><a href="/integrations/">Integrations</a></li>
+                    <li id="menuitem-support"><a href="/support/">Support</a></li>
+                    <li id="menuitem-hosting"><a href="/hosting/">Hosting</a></li>
+
+                    <li id="menuitem-demo"><a href="https://demo.eveoh.nl" target="_blank">Try demo</a></li>
                 </ul>
             </div>
         </div>
@@ -102,14 +104,13 @@
     </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-<script type="text/javascript">
-    if (typeof jQuery == 'undefined') {
-        document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
-    }
-</script>
-
 <script src="/assets/js/bootstrap.min.js"></script>
+<script language="javascript">
+    $("#main-nav-collapse").on("show.bs.collapse", function () {
+        $(".navbar-default").addClass("expanded");
+    }).on("hidden.bs.collapse", function () {
+        $(".navbar-default").removeClass("expanded");
+    });
+</script>
 </body>
 </html>

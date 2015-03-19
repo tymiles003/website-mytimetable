@@ -1,3 +1,4 @@
+
 // Callback for blog request
 var loadPosts = function (data) {
     var baseurl = 'https://blog.eveoh.nl';
