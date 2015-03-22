@@ -14,32 +14,134 @@ title: Integrations
 
 <section class="greybg">
     <div class="container">
-        <h2>Synchronisation with calendar applications</h2>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="lead">Benefit from ready to use integrations</h2>
+
+                <p class="lead">Or develop integrations using our API</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Push based calendar synchronisation</h2>
+
+        <p>Plaatje van MyTT -> GC ofzo + availability info</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Integrate your timetable with your calendar</h3>
+
+                <p>
+                    MyTimetable offers direct integration with leading calendar platforms, such as Microsoft Office 365 and Google Apps for Education.
+                    Timetable activities become appointments in the user's main calender, allowing students and co-workers to schedule meetings based on
+                    complete and correct availability information.
+                </p>
+
+                <p>
+                    Key advantages:
+                </p>
+
+                <ul>
+                    <li>Personalised timetable becomes part of your main calendar</li>
+                    <li>Up-to-date availability information for other users</li>
+                    <li>Push based: MyTimetable determines the update frequency</li>
+                    <li>No separate calendar that is hidden to other users, as with iCalendar subscriptions</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Supported platforms</h3>
+
+                <p>MyTimetable push synchronisation is available for the following platforms:</p>
+
+                <ul>
+                    <li>Microsoft Office 365 (cloud based)</li>
+                    <li>Microsoft Exchange (on-premises)</li>
+                    <li>Google Apps for Education</li>
+                    <li>Google Calendar</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-4">
-                <h3>Microsoft Exchange, Office 365</h3>
-            </div>
+                <h3>Selective synchronisations</h3>
 
-            <div class="col-md-4">
-                <h3>Google Apps for Education</h3>
-            </div>
-
-            <div class="col-md-4">
-                <h3>Other applications</h3>
                 <p>
-                    MyTimetable comes with iCalendar support out of the box.
-                    Calendar applications which support the iCalendar format can also be linked to MyTimetable.
-                    Examples of such applications are:
+                    Students and staff can select which timetables they want to have synchronised to their calendar. Teachers can for example add and view other
+                    staff timetables in MyTimetable, but limit synchronisation to their own timetable.
                 </p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Opt-in vs Opt-out</h3>
+
+                <p>
+                    Push synchronisation is offered as an opt-in and an opt-out option. Using opt-in, users have to manually connect MyTimetable to their
+                    calendar by one simple action in MyTimetable. Institutions can also by default enable the synchronisation for (a group of) users using the
+                    opt-out model.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Cancel push synchronisations</h3>
+
+                <p>
+                    Users can cancel push synchronisations from MyTimetable. Synchronised activities from their timetable can be automatically deleted again,
+                    if required. It is also possible to leave the calendar appointments in place, or remove only future activities.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="greybg">
+    <div class="container">
+        <h2>Pull based calendar synchronisation</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>iCalendar subscriptions</h3>
+
+                <p>
+                    MyTimetable supports iCalendar subscriptions out-of-the-box. Calender applications that support the iCalendar format can be linked to
+                    MyTimetable.
+                </p>
+
+                <p>
+                    These applications will pull the user's personal iCalendar feed containing the user's timetable periodically to keep the calendar
+                    up-to-date.
+                </p>
+
+                <h3>Supported clients</h3>
+
+                <p>iCalendar subscriptions can be used with any client that supports the iCalendar format, such as:</p>
+
                 <ul>
                     <li>Microsoft Outlook</li>
                     <li>Google Calendar</li>
                     <li>Apple Calendar</li>
-                    <li>Mozilla Thunderbird</li>
+                    <li>Smartphone and tablet calendar apps</li>
                 </ul>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Push vs pull</h3>
+
                 <p>
-                    The application will pull the user's personal iCal feed with activities periodically to keep the calendar up-to-date.
-                    However, because this mechanism is pull-based, changes in the schedule will not be propagated instantaneously.
+                    With pull synchronisation, calendar clients such as Microsoft Outlook, retrieve the user's timetable from MyTimetable. The client decides
+                    when the timetable is refreshed, MyTimetable can not determine when this happens. With some clients, the user can configure the refresh
+                    rate. For many cloud based services, the cloud provider determines the refresh rate, which can result in a delay of several hours.The user's
+                    timetable will show up in the client as a separate calendar, and will not be taken into account when planning meetings.
+                </p>
+
+                <p>
+                    With push synchronisation, MyTimetable determines when to refresh the user's timetable, for example after a change occurred in a timetable.
+                    In this scenario, MyTimetable is responsible for keeping the calendar up to date. The user's timetable will be part of the main calendar of
+                    the user, and therefore will be taken into account when planning meetings.
                 </p>
             </div>
         </div>
@@ -48,20 +150,32 @@ title: Integrations
 
 <section>
     <div class="container">
-        <h2>Integration with digital learning environments</h2>
+        <h2>Integration with Electronic Learning Environments</h2>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <img src="/assets/img/integrations/building-block.png" width="100%" />
             </div>
             <div class="col-md-5 col-md-offset-1">
-                <h3>Blackboard</h3>
-                <p>For Blackboard Learn, there's a two-way integration: a building block shows the users upcoming activities in Blackboard and the courses the user enrolled in using Blackboard show up as suggested timetables in MyTimetable.</p>
+                <h3>Blackboard Learn</h3>
+
+                <p>
+                    MyTimetable comes with a Blackboard Learn building block that shows the user's upcoming activities, and allows the user to navigate to the
+                    full MyTimetable interface.
+                </p>
+
+                <p>
+                    Next to this, the building block contains a small REST API allowing MyTimetable to request the user's course enrolments from Blackboard
+                    Learn. These enrolments are used as suggested timetables in MyTimetable.
+                </p>
             </div>
 
             <div class="col-md-5">
-                <h3>Moodle, Sakai</h3>
-                <p>Blocks with <em>Upcoming activities</em> are also available for Moodle and Sakai.</p>
+                <h3>Microsoft Sharepoint, Moodle & Sakai</h3>
+
+                <p>
+                    Upcoming activities of a user can also be integrated in Microsoft Sharepoint, Moodle and Sakai.
+                </p>
             </div>
         </div>
     </div>
@@ -72,7 +186,7 @@ title: Integrations
         <h2>Create custom integrations using our well-documented API</h2>
 
         <p class="lead">
-            Using the MyTimetable REST API, you can integrate timetable information into other applications easily.
+            Using the MyTimetable REST API, you can integrate (personalised) timetable information into other applications easily.
             Think of institutional smartphone apps, timetable displays, workspace availability portals, or even timetable based climate control in lecture rooms.
         </p>
 
@@ -90,32 +204,40 @@ title: Integrations
                 <h3>Scientia Syllabus Plus</h3>
 
                 <p>
-                    Full Scientia Syllabus Plus support is available by linking directly to the Enterprise Reporting Database (ERDB). This ensures timetables are always up-to-date.
+                    Full Scientia Syllabus Plus support is available by reading data directly from the Scientia Enterprise Reporting Database, allowing for
+                    presenting up-to-date timetabling data.
                 </p>
+
                 <p>
-                    All common Syllabus Plus timetabling workflows are supported and MyTimetable can always adapt to your institution's specifics.
+                    All common Scientia Syllabus Plus timetabling workflows are supported. MyTimetable can be configured to support your institution's specific
+                    processes.
                 </p>
             </div>
 
             <div class="col-md-3">
                 <h3>Capita UNIT-e</h3>
-            </div>
-
-            <div class="col-md-3">
-                <h3>MyTimetable built-in data source</h3>
 
                 <p>
-                    The built-in timetable data source can be used to provide timetables with additional activities which are not in the primary timetable data source.
-                    These could be special events or holidays, for example.
+                    TODO
                 </p>
             </div>
 
             <div class="col-md-3">
-                <h3>Or every other data source...</h3>
+                <h3>Built-in data source</h3>
 
                 <p>
-                    Because of the modular architecture of the application, support for other data sources can be added without increasing complexity.
+                    The built-in MyTimetable data source can be used to provide timetables with additional activities that are not available in your primary
+                    timetable data source, such as holidays or cultural activities.
                 </p>
+            </div>
+
+            <div class="col-md-3">
+                <h3>Other data sources</h3>
+
+                <p>
+                    Because of the modular architecture of MyTimetable, support for new data sources can be added easily and affordable.
+                </p>
+
                 <p>
                     Please contact us if you require more information about providing custom data source support.
                 </p>
@@ -133,5 +255,17 @@ title: Integrations
 <section class="greybg">
     <div class="container">
         <h2>Authentication</h2>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Read about the customer support we offer</h2>
+
+                <a class="btn btn-lg btn-primary" href="/support/">Read more</a>
+            </div>
+        </div>
     </div>
 </section>
