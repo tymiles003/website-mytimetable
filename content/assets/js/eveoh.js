@@ -2,7 +2,6 @@
 // Callback for blog request
 var loadPosts = function (data) {
     var baseurl = 'https://blog.eveoh.nl';
-    var header = '<h1><a href="https://blog.eveoh.nl">Blog posts</a></h1>';
     var content = '<ul class="blogposts">';
 
     for (var i = 0; i < data.length; i++) {
@@ -11,6 +10,5 @@ var loadPosts = function (data) {
 
     content += '</ul>';
 
-    document.getElementById('blog').innerHTML = header + content;
-    document.getElementById('blog-mobile').innerHTML = content;
+    document.getElementById('blog').innerHTML = content;
 }
