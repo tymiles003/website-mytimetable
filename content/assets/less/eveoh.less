@@ -246,6 +246,18 @@ blockquote footer {
   -webkit-font-smoothing: antialiased;
 }
 
+.picto {
+  font-size: 250px;
+  line-height: 350px;
+  color: #aaa;
+  text-align: center;
+
+  @media (max-width: @screen-sm-max) {
+    font-size: 100px;
+    line-height: 150px;
+  }
+}
+
 /* Banner */
 .banner {
   position: relative;
@@ -401,6 +413,11 @@ blockquote footer {
   background-image: url('/assets/img/banner-demo.jpg');
 }
 
+#intro-personal {
+  background-image: url('/assets/img/background-personal.png');
+  background-repeat: no-repeat;
+  background-position: 125% -20%;
+}
 #intro-integrations {
   background-image: url('/assets/img/background-integrations.png');
   background-repeat: no-repeat;
@@ -411,6 +428,12 @@ blockquote footer {
   background-image: url('/assets/img/background-support.png');
   background-repeat: no-repeat;
   background-position: 95% 0%;
+}
+
+#intro-hosting {
+  background-image: url('/assets/img/background-hosting.png');
+  background-repeat: no-repeat;
+  background-position: -100px -50px;
 }
 
 #try-now {
