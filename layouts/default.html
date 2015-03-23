@@ -88,16 +88,46 @@
 <%= yield %>
 
 <footer>
-    <div class="container small">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12 text-center">
-                &copy; 2010 &ndash;
-                <script>document.write(new Date().getFullYear())</script>
-                &nbsp;
-                <a href="https://eveoh.nl">Eveoh</a> |
-                <a href="/privacy-policy/">Privacy policy</a> |
-                <a href="/disclaimer/">Disclaimer</a>
-                <br>
+            <div class="col-md-3">
+                <h4>
+                    <a href="https://eveoh.nl" target="_blank">
+                        <img id="eveoh-logo" src="/assets/img/logo-eveoh.png" alt="Eveoh" />
+                    </a>
+                </h4>
+                <p>
+                    Unit 54<br>
+                    Lulofsstraat 55<br>
+                    2521 AL The Hague<br>
+                    The Netherlands
+                </p>
+                <p>
+                    <a href="mailto:info@eveoh.nl" target="_blank">info@eveoh.nl</a><br>
+                    +31 (0)15 700 9707
+                </p>
+
+            </div>
+            <div class="col-md-2">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://twitter.com/eveohnl" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/company/eveoh" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy/">Privacy policy</a></li>
+                    <li><a href="/disclaimer/">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="col-md-5">
+                <h4>Latest blog posts</h4>
+
+                <div id="blog"></div>
+            </div>
+            <div id="vat" class="col-md-12 small">
                 Chamber of Commerce: 27379244, The Hague, The Netherlands / VAT ID: NL822477014B01
             </div>
         </div>
@@ -112,5 +142,7 @@
         $(".navbar-default").removeClass("expanded");
     });
 </script>
+<script type="text/javascript" src="/assets/js/eveoh.js"></script>
+<script type="text/javascript" src="https://blog.eveoh.nl/loadPosts.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ var loadPosts = function (data) {
     var content = '<ul class="blogposts">';
 
     for (var i = 0; i < data.length; i++) {
-        content += '<li><a class="title" href="' + baseurl + data[i].url + '">' + data[i].title + '</a> <small>[' + data[i].date + ']</small></li>';
+        content += '<li><a class="title" href="' + baseurl + data[i].url + '" target="_blank">' + data[i].title + '</a></li>';
     }
 
     content += '</ul>';
