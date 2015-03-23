@@ -408,11 +408,11 @@ blockquote {
 #banner-introduction {
   background-image: url('/assets/img/lecturehall.jpg');
   background-size: cover;
-  height: 650px;
+  height: 550px;
 
   .container {
     #banner-desktop {
-      width: 80%;
+      width: 70%;
       position: absolute;
       left: 15%;
       bottom: -5%;
@@ -428,6 +428,12 @@ blockquote {
 
   @media (max-width: @screen-md-max) {
     height: 550px;
+
+    .container {
+      #banner-desktop {
+        width: 80%;
+      }
+    }
   }
 
   @media (max-width: @screen-sm-max) {
