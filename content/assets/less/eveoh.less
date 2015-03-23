@@ -483,27 +483,30 @@ blockquote {
   background-image: url('/assets/img/banner-demo.jpg');
 }
 
-#intro-personal {
-  background-image: url('/assets/img/background-personal.png');
-  background-repeat: no-repeat;
-  background-position: 125% -20%;
-}
-#intro-integrations {
-  background-image: url('/assets/img/background-integrations.png');
-  background-repeat: no-repeat;
-  background-position: -100px -50px;
-}
+@media (min-width: @screen-md-min) {
+  #intro-personal {
+    background-image: url('/assets/img/background-personal.png');
+    background-repeat: no-repeat;
+    background-position: 125% -20%;
+  }
 
-#intro-support {
-  background-image: url('/assets/img/background-support.png');
-  background-repeat: no-repeat;
-  background-position: 95% 0%;
-}
+  #intro-integrations {
+    background-image: url('/assets/img/background-integrations.png');
+    background-repeat: no-repeat;
+    background-position: -100px -50px;
+  }
 
-#intro-hosting {
-  background-image: url('/assets/img/background-hosting.png');
-  background-repeat: no-repeat;
-  background-position: -100px -50px;
+  #intro-support {
+    background-image: url('/assets/img/background-support.png');
+    background-repeat: no-repeat;
+    background-position: 95% 0%;
+  }
+
+  #intro-hosting {
+    background-image: url('/assets/img/background-hosting.png');
+    background-repeat: no-repeat;
+    background-position: -100px -50px;
+  }
 }
 
 #try-now {
