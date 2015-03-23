@@ -703,3 +703,34 @@ footer {
   vertical-align: middle;
   line-height: inherit;
 }
+
+/* Demo thumbs, thanks Bootstrap Expo */
+.entry-thumb {
+  position: relative;
+  display: block;
+}
+
+.entry-thumb img {
+  display: block;
+  width: 100%;
+}
+
+.entry-icon {
+  position: absolute;
+  display: block;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  right: 0;
+  font-size: 10rem;
+  color: @brand-primary;
+  text-shadow: 0 0 4rem rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: opacity .3s ease-in-out;
+}
+.entry-thumb:hover .entry-icon {
+  opacity: 1;
+}
