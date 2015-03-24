@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <title>MyTimetable - <%=h @item[:title] %></title>
 
     <link rel="stylesheet" href="/assets/style/eveoh.css" media="screen">
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600">
+
+    <link rel="stylesheet" href="/assets/css/fontello.css">
+    <!--[if IE 7]><link rel="stylesheet" href="/assets/css/fontello-ie7.css"><![endif]-->
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -45,11 +48,19 @@
             s.parentNode.insertBefore(g, s);
         })();
     </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+    </script>
 </head>
 
 <body>
 <header class="hidden-phone hidden-print">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="120">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="25">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
@@ -58,21 +69,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <!--<span class="visible-xs-inline">xs</span>-->
-                    <!--<span class="visible-sm-inline">sm</span>-->
-                    <!--<span class="visible-md-inline">md</span>-->
-                    <!--<span class="visible-lg-inline">lg</span>-->
-                    <div class="logo-mytimetable animated fadeInLeft">MyTimetable</div>
+                <a class="navbar-brand" href="/">
+                    <div class="logo-mytimetable">MyTimetable</div>
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="main-nav-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#customers">Customers</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li id="menuitem-introduction"><a href="/">Introduction</a></li>
+                    <li id="menuitem-features"><a href="/features/">Features</a></li>
+                    <li id="menuitem-integrations"><a href="/integrations/">Integrations</a></li>
+                    <li id="menuitem-support"><a href="/support/">Support</a></li>
+                    <li id="menuitem-hosting"><a href="/hosting/">Hosting</a></li>
+                    <li id="menuitem-demo"><a href="/demo/">Try demo</a></li>
                 </ul>
             </div>
         </div>
@@ -82,59 +91,71 @@
 <%= yield %>
 
 <footer>
-    <div class="container small">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12 text-center">
-                &copy; 2010 &ndash;
-                <script>document.write(new Date().getFullYear())</script>
-                &nbsp; Eveoh |
-                <a href="/privacy-policy/">Privacy policy</a> |
-                <a href="/disclaimer/">Disclaimer</a>
-                <br>
+            <div class="col-md-3">
+                <h4 class="fn org">
+                    <a href="https://eveoh.nl" target="_blank" class="url">
+                        <img id="eveoh-logo" src="/assets/img/logo-eveoh.png" alt="Eveoh" />
+                    </a>
+                </h4>
+
+                <p class="adr">
+                    <span class="extended-address">Unit 54</span><br>
+                    <span class="street-address">Lulofsstraat 55</span><br>
+                    <span class="postal-code">2521 AL</span> <span class="locality">The Hague</span><br>
+                    <span class="country-name">The Netherlands</span>
+                </p>
+
+                <p>
+                    <a href="mailto:info@eveoh.nl" target="_blank" class="email">info@eveoh.nl</a><br>
+                    <span class="phone tel">
+                        <span class="type hide">work</span>
+                        <span class="type hide">pref</span>
+                        <a href="tel:0031157009707">+31 (0)15 700 9707</a>
+                        <span class="value hide">+31157009707</span>
+                    </span>
+                </p>
+            </div>
+
+            <div class="col-md-2">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://twitter.com/eveohnl" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/company/eveoh" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy/">Privacy policy</a></li>
+                    <li><a href="/disclaimer/">Disclaimer</a></li>
+                    <li><a href="/attributions/">Attributions</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-5">
+                <h4>Latest blog articles</h4>
+
+                <div id="blog"></div>
+            </div>
+            <div id="vat" class="col-md-12 small">
                 Chamber of Commerce: 27379244, The Hague, The Netherlands / VAT ID: NL822477014B01
             </div>
         </div>
     </div>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-<script type="text/javascript">
-    if (typeof jQuery == 'undefined') {
-        document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
-    }
-</script>
-
 <script src="/assets/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-    $('body').scrollspy();
-
-    $('a').click(function () {
-        // trigger animation on internal links
-        if ($(this).attr('href').substr(0, 1) === '#') {
-            if (history.pushState) {
-                $('html, body').animate({
-                    scrollTop: $($(this).attr('href')).offset().top
-                }, 500);
-
-                history.pushState(null, null, $(this).attr('href'));
-
-                return false;
-            }
-        }
-
-        return true;
-    });
-
-    // Close the mobile menu after clicking a navigation link
-    var mainNavCollapse = $('#main-nav-collapse');
-
-    $('#main-nav-collapse a').click(function () {
-        if ($(".navbar-toggle").is(":visible")) {
-            mainNavCollapse.collapse('hide');
-        }
+<script language="javascript">
+    $("#main-nav-collapse").on("show.bs.collapse", function () {
+        $(".navbar-default").addClass("expanded");
+    }).on("hidden.bs.collapse", function () {
+        $(".navbar-default").removeClass("expanded");
     });
 </script>
+<script type="text/javascript" src="/assets/js/eveoh.js"></script>
+<script type="text/javascript" src="https://blog.eveoh.nl/loadPosts.js"></script>
 </body>
 </html>

@@ -7,378 +7,733 @@
 /* Variables */
 @font-family-sans-serif: 'Open Sans', sans-serif;
 
-@navbar-default-color: @gray;
-@navbar-default-bg: transparent;
+@eveohDarkBlue: #2d3037;
+@eveohLightBlue: #0081c6;
+
+@navbar-height: 70px;
+@navbar-height-xs: 50px;
+@navbar-default-color: #d6d6d6;
+@navbar-default-bg: @eveohDarkBlue;
 @navbar-default-border: none;
-@navbar-default-link-active-bg: transparent;
+@navbar-default-link-color: @navbar-default-color;
+@navbar-default-link-hover-bg: @eveohLightBlue;
+@navbar-default-link-hover-color: #fff;
+@navbar-default-link-active-color: @navbar-default-link-hover-color;
+@navbar-default-link-active-bg: @navbar-default-link-hover-bg;
 @navbar-default-toggle-hover-bg: transparent;
-@navbar-default-toggle-icon-bar-bg: #222;
+@navbar-default-toggle-icon-bar-bg: #fff;
 @navbar-default-toggle-border-color: transparent;
-@link-color: #0081c6;
+
+@link-color: @eveohLightBlue;
+
+@brand-primary: @eveohLightBlue;
+@brand-info: @eveohLightBlue;
+
+@btn-primary-color: #fff;
+@btn-primary-bg: @brand-primary;
+@btn-primary-border: @brand-primary;
+
+@text-color: @gray-light;
+@headings-color: @gray-darker;
+@headings-line-height: 1.3;
 
 /* Main page */
 body {
-    -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
-p {
-    line-height: 24px;
-    font-size: 15px;
-}
-
-section {
-    padding: 30px 0;
+p, li {
+  line-height: 24px;
+  font-size: 15px;
 }
 
 h2 {
-    text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  &.lead {
+    font-size: 36px;
+    letter-spacing: -0.05em;
+  }
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+section {
+  padding: 30px 0;
+
+  @media (min-width: @screen-sm-min) {
+    padding: 35px 0;
+  }
+
+  @media (min-width: @screen-md-min) {
+    padding: 40px 0;
+  }
+
+  @media (min-width: @screen-lg-min) {
+    padding: 50px 0;
+  }
 }
 
 .greybg {
-    background-color: #f7f7f9;
+  background-color: #f4f4f4;
 }
 
-::-moz-selection, ::selection {
-    background: #f39c12;
-    text-shadow: none;
+::-moz-selection,
+::selection {
+  background: #f39c12;
+  text-shadow: none;
 }
 
 /* Buttons */
 .btn {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
-    border: 1px solid #f39c12;
-    color: #222;
-    border-radius: 3px;
-    margin: 15px 0;
+//  text-transform: uppercase;
+//  letter-spacing: 1px;
+  margin: 15px 0;
 
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
+  &.active {
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.btn:hover, .btn:focus {
-    border-color: #0081c6;
-    opacity: 1;
-    color: #222;
-    text-decoration: none;
+.btn-primary {
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-color: lighten(@brand-primary, 7%);
+    border-color: lighten(@brand-primary, 7%);
+  }
 }
 
 .btn-md {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .btn-lg {
-    padding: 20px 40px;
+  padding: 20px 40px;
+  border-radius: 4px;
 }
 
 /* Main navigation */
-.navbar {
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+.navbar-default {
+//  border-top: 4px solid @eveohLightBlue;
+  border-bottom: none;
 
-    a {
-        -webkit-transition: all 0.15s ease-in-out;
-        -moz-transition: all 0.15s ease-in-out;
-        -ms-transition: all 0.15s ease-in-out;
-        -o-transition: all 0.15s ease-in-out;
-        transition: all 0.15s ease-in-out;
-    }
+  -webkit-transition: background-color 0.4s ease-in-out;
+  -moz-transition: background-color 0.4s ease-in-out;
+  -ms-transition: background-color 0.4s ease-in-out;
+  -o-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
 
-    /* Adjust for MyTimetable logo */
-    .navbar-brand {
-        padding: 0 15px;
+  @media (max-width: @screen-xs-max) {
+    min-height: @navbar-height-xs;
+    background-color: transparent;
 
-        .logo-mytimetable {
-            font-family: "Open Sans", sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            line-height: 50px;
-            letter-spacing: -0.05em;
-            vertical-align: middle;
-        }
-    }
-
-    .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
-        color: #fff;
-    }
-
-    /* Same margin as brand logo, compensate. */
     .navbar-toggle {
-        margin-right: 5px;
+      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.25);
+      border-radius: 3px;
+
+      &:hover,
+      &:focus {
+        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
     }
-}
 
-/* Banner */
-.banner {
-    position: relative;
-    background: #fff url('/assets/img/banner.jpg') no-repeat center center;
-    background-size: cover;
-    height: 250px;
+    &.affix,
+    &.expanded {
+      background-color: @eveohDarkBlue;
 
-    .banner-text {
-        margin-top: 60px;
+      .navbar-toggle {
+        background-color: transparent;
 
-        p {
-            display: inline;
-            font-family: "Helvetica Neue", 'Open Sans', Arial, sans-serif;;
-            color: #fff;
-            font-size: 25px;
-            line-height: 38px;
-            text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
-            -moz-text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
-            -webkit-text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+        .icon-bar {
+          background-color: @navbar-default-link-color;
         }
+      }
     }
-}
+  }
 
-.try-mytimetable-now-btn-wrapper {
-    margin-top: 175px;
-}
-
-.try-mytimetable-now-btn {
+  a {
     -webkit-transition: all 0.15s ease-in-out;
     -moz-transition: all 0.15s ease-in-out;
     -ms-transition: all 0.15s ease-in-out;
     -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
+  }
 
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none
+  /* Adjust for MyTimetable logo */
+  .navbar-brand {
+    padding: 0 15px;
+
+    @media (max-width: @screen-xs-max) {
+      height: @navbar-height-xs;
+    }
+
+    .logo-mytimetable {
+      font-family: "Open Sans", sans-serif;
+      color: #fff;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: @navbar-height;
+      letter-spacing: -0.05em;
+      vertical-align: middle;
+
+      @media (max-width: @screen-xs-max) {
+        line-height: @navbar-height-xs;
+      }
+    }
+  }
+
+  /* Same margin as brand logo, compensate. */
+  .navbar-toggle {
+    margin-right: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  #menuitem-demo a {
+//    background-color: @navbar-default-color;
+//    color: @navbar-default-bg;
+    padding: 7px 15px;
+    border: 1px solid @navbar-default-color;
+    border-radius: 4px;
+
+    margin-top: 17px;
+    margin-left: 15px;
+
+    @media (max-width: @screen-xs-max) {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 15px;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid #fff;
+      background-color: #fff;
+      color: @navbar-default-bg;
+    }
+  }
 }
 
-.try-mytimetable-now-btn:hover {
-    background-color: white;
+a.read-more,
+a.read-more:hover,
+a.read-more:focus,
+a.read-more:active {
+  font-size: 15px;
+  line-height: 3;
+  text-decoration: none;
+  border-bottom: 1px dotted @link-color;
+  padding-bottom: 2px;
+}
+
+blockquote {
+  position: relative;
+  background-color: #f4f4f4;
+  padding: 35px 45px;
+  margin: 125px 0;
+  border: none;
+
+  @media (max-width: @screen-sm-max) {
+    margin: 30px 10px;
+  }
+
+  p {
+    color: darken(@text-color, 5%);
+  }
+
+  &:before,
+  &:after {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+
+  &:before {
+    content: '\e808';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+  }
+
+  &:after {
+    content: '\e809';
+    position: absolute;
+    bottom: 10px;
+    right: -20px;
+  }
+
+  footer {
+    background: none;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.picto {
+  font-size: 250px;
+  line-height: 350px;
+  color: #aaa;
+  text-align: center;
+
+  @media (max-width: @screen-sm-max) {
+    font-size: 100px;
+    line-height: 150px;
+  }
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: cover;
+
+  .container {
+    position: relative;
+    height: 100%;
+  }
+
+  .banner-shadow {
+    width: 100%;
+    height: 50px;
+
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0 0 15px;
+  }
+
+  h2 {
+    letter-spacing: -0.05em;
+  }
+
+  &.text-inverted {
+    h1,
+    h2 {
+      color: #fff;
+
+      text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+    }
+
+    p {
+      color: #ddd;
+      text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 3px;
+    }
+  }
+}
+
+.banner-top {
+  height: 500px;
+
+  @media (max-width: @screen-md-max) {
+    height: 425px;
+  }
+
+  @media (max-width: @screen-sm-max) {
+    height: 350px;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    height: 0;
+    padding-bottom: 62%;
+  }
+
+  .container {
+    @media (max-width: @screen-xs-max) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      color: #fff;
+      position: absolute;
+      bottom: 35px;
+      font-size: 72px;
+      letter-spacing: -0.05em;
+      text-shadow: rgba(0, 0 ,0, 0.75) 2px 2px 8px;
+
+      @media (max-width: @screen-xs-max) {
+        font-size: 40px;
+        bottom: 15px;
+      }
+    }
+  }
+}
+
+#banner-introduction {
+  background-image: url('/assets/img/lecturehall.jpg');
+  background-size: cover;
+  height: 550px;
+
+  .container {
+    #banner-desktop {
+      width: 70%;
+      position: absolute;
+      left: 15%;
+      bottom: -5%;
+    }
+
+    #banner-mobile {
+      width: 25%;
+      position: absolute;
+      left: 5%;
+      bottom: -33%;
+    }
+  }
+
+  @media (max-width: @screen-md-max) {
+    height: 550px;
+
+    .container {
+      #banner-desktop {
+        width: 80%;
+      }
+    }
+  }
+
+  @media (max-width: @screen-sm-max) {
+    height: 450px;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    height: 0;
+    padding-bottom: 62%;
+
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+#banner-hosting {
+  background-image: url('/assets/img/hosting-server.jpg');
+}
+
+#banner-features {
+  background-image: url('/assets/img/banner-students.jpg');
+}
+
+#banner-features-mobile {
+  background-image: url('/assets/img/mobile-ready.jpg');
+}
+
+#banner-integrations {
+  background-image: url('/assets/img/banner-integrations.jpg');
+}
+
+#banner-integrations-api {
+  background-image: url('/assets/img/json-api.jpg');
+}
+
+#banner-support {
+    background-image: url('/assets/img/banner-library.jpg');
+}
+
+#banner-demo {
+  background-image: url('/assets/img/banner-demo.jpg');
+}
+
+@media (min-width: @screen-md-min) {
+  #intro-personal {
+    background-image: url('/assets/img/background-personal.png');
+    background-repeat: no-repeat;
+    background-position: 125% -20%;
+  }
+
+  #intro-integrations {
+    background-image: url('/assets/img/background-integrations.png');
+    background-repeat: no-repeat;
+    background-position: -100px -50px;
+  }
+
+  #intro-support {
+    background-image: url('/assets/img/background-support.png');
+    background-repeat: no-repeat;
+    background-position: 95% 0%;
+  }
+
+  #intro-hosting {
+    background-image: url('/assets/img/background-hosting.png');
+    background-repeat: no-repeat;
+    background-position: -100px -50px;
+  }
+}
+
+#try-now {
+  background-color: #0081C6;
+
+  h2.lead, a, p.lead {
+    color: #fff;
+  }
+
+  a.read-more {
+    border-bottom-color: #fff;
+  }
+
+  .btn-primary {
+    color: #0081C6;
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+.first-section {
+  h1 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: -0.05em;
+    margin-bottom: 30px;
+  }
+
+  .lead {
+    line-height: 1.5;
+  }
+}
+
+.feature-list {
+  h4 {
+    margin-top: 25px;
+    padding: 0 4px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    margin-top: 8px;
+    padding: 0;
+    border-top: 1px solid #ccc;
+
+    li {
+      padding: 6px 4px;
+      margin: 0;
+    }
+
+    li:nth-child(odd) {
+      background-color: #f4f4f4;
+    }
+  }
 }
 
 /* Blog */
 .mobile-blog {
-    .blogposts {
-        margin-bottom: 20px;
-        list-style-type: none;
-        padding-left: 0;
+  .blogposts {
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding-left: 0;
 
-        li {
-            margin-bottom: 10px;
-        }
+    li {
+      margin-bottom: 10px;
     }
-}
-
-/* Lead text */
-.lead {
-    font-family: "Helvetica Neue", 'Open Sans', Arial, sans-serif;
+  }
 }
 
 /* Products */
 .product {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .img-product-grid .img-product {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 figcaption {
-    font-style: italic;
+  font-style: italic;
 }
 
 /* Customers */
 .logo-customer {
-    width: 120px;
-    display: inline-block;
-    padding: 5px;
+  width: 120px;
+  display: inline-block;
+  padding: 5px;
 
-    img {
-        background-color: #fff;
-        border: 1px solid #d3d3d3;
-    }
+  @media (min-width: @screen-sm-min) {
+    width: 150px;
+    margin: 8px;
+  }
+
+  @media (min-width: @screen-lg-min) {
+    width: 170px;
+    margin: 10px;
+  }
+
+  img {
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+  }
 }
 
 /* Contact */
 
 /* Footer */
 footer {
-    background-color: #0081c6;
+  background-color: @eveohDarkBlue;
+  color: lighten(@eveohDarkBlue, 50%);
+  padding: 30px 0;
+  -webkit-font-smoothing: auto;
+
+  h4 {
     color: #fff;
-    padding: 30px 0;
-    -webkit-font-smoothing: auto;
+    margin-top: 35px;
+    font-size: 14px;
+  }
 
-    a, a:hover, a:active {
-        color: #fff;
-    }
+  p {
+    font-size: 13px;
+    line-height: 18px
+  }
 
-    a {
-        text-decoration: underline;
-    }
+  ul {
+    padding: 0;
 
-    a:hover, a:active {
-        text-decoration: none;
+    li {
+      font-size: 13px;
+      line-height: 18px;
+      padding: 3px 0;
+      margin: 0;
+      list-style: none;
     }
+  }
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: #fff;
+  }
+
+  #eveoh-logo {
+    width: 100px;
+    height: 48px;
+
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+
+  #vat {
+    margin-top: 35px;
+  }
 }
 
 /* Policies */
-.privacy-policy, .disclaimer {
-    h2 {
-        text-align: left;
-    }
-}
-
-/* Minimum size of mobile screens is 320px */
-
-/* sm and up [768px, ->) */
-@media (min-width: @screen-sm-min) {
-    /* Main page */
-    section {
-        padding: 35px 0;
-    }
-
-    .navbar {
-        border-bottom: 1px solid #eeeeee;
-    }
-
-    /* By default, we have a semi-transparent background. White on larger screens. */
-    .navbar {
-        background-color: #fff;
-        background-color: rgba(255, 255, 255, 0.95);
-        color: @gray;
-
-        .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
-            color: #0081c6;
-        }
-    }
-
-    /* Banner */
-    .banner {
-        height: 325px;
-
-        .try-mytimetable-now-btn-wrapper {
-            margin-top: 250px;
-        }
-    }
-
-    /* Customers */
-    .logo-customer {
-        width: 150px;
-        margin: 8px;
-    }
-}
-
-/* md and up [992px, ->) */
-@media (min-width: @screen-md-min) {
-    /* Main page */
-    section {
-        padding: 40px 0;
-    }
-
-    /* Banner */
-    .banner {
-        height: 325px;
-
-        .try-mytimetable-now-btn-wrapper {
-            margin-top: 250px;
-        }
-
-        /* Blog post block in header */
-        #blog {
-            width: 400px;
-            padding: 5px 15px;
-            display: block;
-            background-color: rgba(0, 0, 0, 0.3);
-            top: 50px;
-            max-height: 200px;
-
-            h1 {
-                text-align: left;
-                color: rgba(255, 255, 255, 0.95);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-                margin: 10px 0 0 0;
-                padding: 0 0 5px;
-                font-size: 16px;
-                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-                a {
-                    color: rgba(255, 255, 255, 0.95);
-                }
-            }
-
-            ul {
-                padding-left: 25px;
-
-                li {
-                    color: #fff;
-                    margin-top: 12px;
-
-                    .title {
-                        color: rgba(255, 255, 255, 0.85);
-                    }
-
-                    small {
-                        color: rgba(255, 255, 255, 0.6);
-                        font-size: 12px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-/* xs only [0, 768px) */
-@media (max-width: @screen-xs-max) {
-    // Change to semi-transparent background after affix kicked in
-    nav.affix {
-        background-color: #fff;
-        background-color: rgba(255, 255, 255, 0.95);
-        border-bottom: 1px solid @gray-lighter;
-
-        .navbar-brand .logo-mytimetable, .navbar-brand:hover .logo-mytimetable {
-            color: #0081c6;
-        }
-    }
-
-    .navbar-collapse.in, .navbar-collapse.collapsing {
-        background-color: #fff;
-    }
-
-    nav.affix-top {
-        .navbar-collapse.in, .navbar-collapse.collapsing {
-            border-bottom: 1px solid @gray-lighter;
-        }
-    }
+.privacy-policy,
+.disclaimer {
+  h2 {
+    text-align: left;
+  }
 }
 
 @media (max-width: @screen-xs-max) and (orientation: landscape) {
-    /* On small devices in landscape mode, use smaller product images to improve readability */
-    .img-product {
-        width: 65%;
-    }
+  /* On small devices in landscape mode, use smaller product images to improve readability */
+  .img-product {
+    width: 65%;
+  }
 }
 
-/* sm only [768px, 992px) */
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
 
+.table-comparison .glyphicon-ok {
+  color: @brand-success;
 }
 
-/* md only [992px, 1200px) */
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-
+.table-comparison .glyphicon-certificate {
+  color: @brand-info;
 }
 
-/* lg [1200px, ->) */
-@media (min-width: @screen-lg-min) {
-    /* Main page */
-    section {
-        padding: 50px 0;
-    }
+.table-comparison th[scope="col"] {
+  width: 250px;
+}
 
-    /* Customers */
-    .logo-customer {
-        width: 170px;
-        margin: 10px;
-    }
+.label-as-badge {
+  border-radius: 1em;
+  font-size: 11px;
+  vertical-align: middle;
+  line-height: inherit;
+}
+
+/* Demo thumbs, thanks Bootstrap Expo */
+.entry-thumb {
+  position: relative;
+  display: block;
+}
+
+.entry-thumb img {
+  display: block;
+  width: 100%;
+}
+
+.entry-icon {
+  position: absolute;
+  display: block;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  right: 0;
+  font-size: 10rem;
+  color: @brand-primary;
+  text-shadow: 0 0 4rem rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: opacity .3s ease-in-out;
+}
+.entry-thumb:hover .entry-icon {
+  opacity: 1;
 }
