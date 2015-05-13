@@ -45,6 +45,11 @@ compile '/privacy-policy' do
   layout 'policy'
 end
 
+compile '/gebruikersmiddag/*' do
+  filter :erb
+  layout 'userconference-nl'
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
