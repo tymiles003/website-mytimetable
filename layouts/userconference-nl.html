@@ -3,6 +3,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+    <% if !@item[:private].nil? and @item[:private] %>
+    <meta name="robots" content="noindex, nofollow">
+    <% end %>
+
     <title>MyTimetable - <%=h @item[:title] %></title>
 
     <link rel="stylesheet" href="/assets/style/eveoh.css" media="screen">
