@@ -408,6 +408,11 @@ blockquote {
 
 .banner-top-small {
   height: 350px;
+
+  @media (max-width: @screen-xs-max) {
+    height: 0;
+    padding-bottom: 62%;
+  }
 }
 
 #banner-introduction {
