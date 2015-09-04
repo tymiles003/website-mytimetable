@@ -35,6 +35,11 @@ compile '/assets/*' do
   # don’t filter or layout
 end
 
+compile '/attributions' do
+  filter :erb
+  layout 'policy'
+end
+
 compile '/disclaimer' do
   filter :erb
   layout 'policy'
