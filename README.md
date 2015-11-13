@@ -5,11 +5,11 @@
 It's our MyTimetable website!
 
 ## Install global prerequisites
-* Make sure Ruby has been installed
+* Make sure Ruby has been installed.
 
 ```
 ~ ruby --version
-ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-darwin14.0]
+ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]
 ```
 
 * Update/install rubygems
@@ -23,12 +23,6 @@ ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-darwin14.0]
 ```
 ~ gem install bundler
 ```
-
-* Install Nanoc
-
-```
-~ gem install nanoc
-````
 
 * Install NodeJS (e.g. using Homebrew)
 
@@ -58,6 +52,13 @@ In the project directory:
 ```
 
 The site is now available at http://localhost:3000/.
+
+## Compile the site
+```
+~ bundle exec nanoc
+```
+
+When changes are not visible, empty the `/output` and `/tmp` folders.
 
 ## Autocompile changes
 ```
