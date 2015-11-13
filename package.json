@@ -8,15 +8,10 @@
     "type": "git",
     "url": "https://github.com/eveoh/website-mytimetable.git"
   },
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0"
-    }
-  ],
+  "license": "Apache-2.0",
   "devDependencies": {
-    "uglify-js": "2.4.17",
-    "jshint": "2.6.3",
-    "less": "2.4.0"
+    "uglify-js": "2.6.0",
+    "jshint": "2.8.0",
+    "less": "2.5.3"
   }
 }
