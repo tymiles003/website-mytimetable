@@ -1,6 +1,7 @@
-class EveohLessFilter < Nanoc3::Filter
+class EveohLessFilter < Nanoc::Filter
 
   identifier :eveohLess
+  type :text
 
   def run(content, cmd, params={})
     puts "Running Recess..."

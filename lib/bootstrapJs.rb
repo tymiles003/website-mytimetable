@@ -1,6 +1,6 @@
 require 'fileutils'
 
-class BootstrapJsFilter < Nanoc3::Filter
+class BootstrapJsFilter < Nanoc::Filter
 
   identifier :bootstrapJs
 
@@ -12,18 +12,18 @@ class BootstrapJsFilter < Nanoc3::Filter
 
     File.open('./tmp/bootstrap.js','w') do |mergedFile|
         my_files = [
-            "./content/assets/js/bootstrap/bootstrap-transition.js",
-            #"./content/assets/js/bootstrap/bootstrap-alert.js",
-            #"./content/assets/js/bootstrap/bootstrap-button.js",
-            #"./content/assets/js/bootstrap/bootstrap-carousel.js",
-            "./content/assets/js/bootstrap/bootstrap-collapse.js",
-            #"./content/assets/js/bootstrap/bootstrap-dropdown.js",
-            #"./content/assets/js/bootstrap/bootstrap-modal.js",
-            #"./content/assets/js/bootstrap/bootstrap-tooltip.js",
-            #"./content/assets/js/bootstrap/bootstrap-popover.js",
-            "./content/assets/js/bootstrap/bootstrap-scrollspy.js",
-            #"./content/assets/js/bootstrap/bootstrap-tab.js",
-            "./content/assets/js/bootstrap/bootstrap-affix.js"
+            "./content/assets/js/bootstrap/transition.js",
+            #"./content/assets/js/bootstrap/alert.js",
+            #"./content/assets/js/bootstrap/button.js",
+            #"./content/assets/js/bootstrap/carousel.js",
+            "./content/assets/js/bootstrap/collapse.js",
+            #"./content/assets/js/bootstrap/dropdown.js",
+            #"./content/assets/js/bootstrap/modal.js",
+            #"./content/assets/js/bootstrap/tooltip.js",
+            #"./content/assets/js/bootstrap/popover.js",
+            "./content/assets/js/bootstrap/scrollspy.js",
+            #"./content/assets/js/bootstrap/tab.js",
+            "./content/assets/js/bootstrap/affix.js"
         ]
 
         my_files.each do |f_name|

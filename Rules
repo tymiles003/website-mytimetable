@@ -1,98 +1,100 @@
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
-#
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
+# Passthrough CSS
+passthrough '/assets/css/**/*'
 
-compile '/assets/less/*' do
-# Note:  built-in less filter not working properly, using commandline filter instead
-  filter :eveohLess if @item.identifier.gsub('/assets/less/','').chop == 'eveoh'
+# Passthrough Fonts
+passthrough '/assets/fonts/**/*'
+
+# Passthrough Images
+passthrough '/assets/img/**/*'
+
+# Passthrough Custom Javascript
+passthrough '/assets/js/*.js'
+
+#=== H4xx ===#
+
+# Compile using the NodeJS Less compiler. Outputs to /assets/style/eveoh.css.
+compile '/assets/less/eveoh.less' do
+  filter :eveohLess
 end
 
-compile '/assets/js/bootstrap/*' do
-# Note:  built-in uglifyjs filter not working properly, using commandline filter instead
-  filter :bootstrapJs if @item.identifier.gsub('/assets/js/bootstrap/','').chop == 'bootstrap-modal'
-end
-
-compile '/assets/css/*/' do
+compile '/assets/less/**/*' do
   # don’t filter or layout
 end
 
-compile '/assets/js/*/' do
+# Concatenate and Uglify the Bootstrap Javascript files we need. Outputs to /assets/js/bootstrap.min.js.
+compile '/assets/js/bootstrap/modal.js' do
+  filter :bootstrapJs
+end
+
+compile '/assets/js/bootstrap/**/*' do
   # don’t filter or layout
 end
 
-compile '/assets/*' do
-  # don’t filter or layout
-end
+# === /H4xx === #
 
-compile '/attributions' do
+
+# Policies
+compile '/attributions.html' do
   filter :erb
-  layout 'policy'
+  layout '/policy.html'
 end
 
-compile '/disclaimer' do
+compile '/disclaimer.html' do
   filter :erb
-  layout 'policy'
+  layout '/policy.html'
 end
 
-compile '/privacy-policy' do
+compile '/privacy-policy.html' do
   filter :erb
-  layout 'policy'
+  layout '/policy.html'
 end
 
-compile '/gebruikersmiddag/*' do
+
+# User conference
+
+compile '/gebruikersmiddag.html' do
   filter :erb
-  layout 'userconference-nl'
+  layout '/userconference-nl.html'
 end
 
-compile '*' do
-  if item.binary?
-    # don’t filter binary items
+compile '/gebruikersmiddag/**/*.html' do
+  filter :erb
+  layout '/userconference-nl.html'
+end
+
+
+# Default layout
+
+compile '/*.html' do
+  filter :erb
+  layout '/default.html'
+end
+
+
+# Ignore files that are processed into one file
+
+# Don't copy over Less files
+route '/assets/less/**/*' do
+  nil
+end
+
+# Don't copy over Bootstrap Javascript
+route '/assets/js/bootstrap/**/*' do
+  nil
+end
+
+# Routing
+
+route '/**/*.html' do
+  # Do not put the main index in a subdirectory
+  if @item.identifier == "/index.html"
+    @item.identifier.to_s
   else
-    filter :erb
-    layout 'default'
+    @item.identifier.without_ext + "/index.html"
   end
 end
 
-route '/assets/less/*/' do
-  # don't copy over less files
-end
 
-route '/assets/js/bootstrap/*/' do
-  # don't copy over bootstrap js files
-end
-
-route '/assets/fonts/*/' do
-  # /fonts/foo-eot/ -> /fonts/foo.eot
-  item.identifier.gsub(/(.*)(-)(.*)\//, '\1') + '.' + item[:extension]
-end
-
-route '/assets/js/*/' do
-    item.identifier.chop + ".js"
-end
-
-route '/assets/css/*/' do
-    item.identifier.chop + ".css"
-end
-
-route '*' do
-  if item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
-  else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
-  end
-end
-
-layout '*', :erb
+layout '/**/*', :erb
