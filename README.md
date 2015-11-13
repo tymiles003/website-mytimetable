@@ -1,4 +1,7 @@
 # MyTimetable website
+
+[![devDependency Status](https://david-dm.org/eveoh/website-eveoh/dev-status.svg)](https://david-dm.org/eveoh/website-eveoh#info=devDependencies)
+
 It's our MyTimetable website!
 
 ## Install global prerequisites
