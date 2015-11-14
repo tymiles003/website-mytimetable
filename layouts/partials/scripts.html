@@ -1,0 +1,22 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(decodeURI("%3Cscript src='/assets/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+</script>
+
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script language="javascript">
+    $("#menuitem-<%=h @item[:menuitem] %>").addClass("active");
+
+    $("#main-nav-collapse").on("show.bs.collapse", function () {
+        $(".navbar-default").addClass("expanded");
+    }).on("hidden.bs.collapse", function () {
+        $(".navbar-default").removeClass("expanded");
+    });
+</script>
+
+<script type="text/javascript" src="/assets/js/eveoh.js"></script>
+<script type="text/javascript" src="https://blog.eveoh.nl/loadPosts.js"></script>
