@@ -9,7 +9,9 @@
 <script src="/assets/js/bootstrap.min.js"></script>
 
 <script language="javascript">
+    <% if !@item[:menuitem].nil? %>
     $("#menuitem-<%=h @item[:menuitem] %>").addClass("active");
+    <% end %>
 
     $("#main-nav-collapse").on("show.bs.collapse", function () {
         $(".navbar-default").addClass("expanded");
