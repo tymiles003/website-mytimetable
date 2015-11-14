@@ -1,6 +1,6 @@
 # MyTimetable website
 
-[![devDependency Status](https://david-dm.org/eveoh/website-eveoh/dev-status.svg)](https://david-dm.org/eveoh/website-eveoh#info=devDependencies)
+[![devDependency Status](https://david-dm.org/eveoh/website-mytimetable/dev-status.svg)](https://david-dm.org/eveoh/website-mytimetable#info=devDependencies)
 
 It's our MyTimetable website!
 
