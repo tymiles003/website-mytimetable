@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2.1
+before_install:
+  - npm install
+script: bundle exec nanoc
+sudo: false
+cache: bundler
+notifications:
+  email: false
