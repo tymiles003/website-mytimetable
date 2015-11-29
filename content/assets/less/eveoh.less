@@ -173,6 +173,10 @@ section {
     -ms-transition: all 0.15s ease-in-out;
     -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
+
+    @media (max-width: @screen-md-max) {
+      font-size: 13px;
+    }
   }
 
   /* Adjust for MyTimetable logo */
@@ -191,6 +195,10 @@ section {
       line-height: @navbar-height;
       letter-spacing: -0.05em;
       vertical-align: middle;
+
+      @media (max-width: @screen-md-max) {
+        font-size: 26px;
+      }
 
       @media (max-width: @screen-xs-max) {
         line-height: @navbar-height-xs;
