@@ -40,6 +40,14 @@
 /* Main page */
 body {
   -webkit-font-smoothing: antialiased;
+
+  &.no-banner {
+    padding-top: @navbar-height;
+
+    @media (max-width: @screen-xs-max) {
+      padding-top: @navbar-height-xs;
+    }
+  }
 }
 
 p, li {
@@ -235,6 +243,12 @@ section {
       background-color: #fff;
       color: @navbar-default-bg;
     }
+  }
+}
+
+body.no-banner .navbar-default {
+  @media (max-width: @screen-xs-max) {
+    background-color: @navbar-default-bg;
   }
 }
 
