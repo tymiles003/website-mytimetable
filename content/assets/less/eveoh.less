@@ -720,16 +720,23 @@ footer {
 }
 
 
-.table-comparison .glyphicon-ok {
-  color: @brand-success;
-}
+.table-comparison {
+  .glyphicon-ok {
+    color: @brand-success;
+  }
 
-.table-comparison .glyphicon-certificate {
-  color: @brand-info;
-}
+  .glyphicon-certificate {
+    color: @brand-info;
+  }
 
-.table-comparison th[scope="col"] {
-  width: 250px;
+  td,
+  th[scope="col"] {
+    text-align: center;
+  }
+
+  @media (max-width: @screen-xs-max) {
+    font-size: 13px;
+  }
 }
 
 .label-as-badge {
