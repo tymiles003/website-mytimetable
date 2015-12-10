@@ -64,6 +64,16 @@ compile '/gebruikersmiddag/**/*.html' do
   layout '/userconference-nl.html'
 end
 
+compile '/conference.html' do
+  filter :erb
+  layout '/userconference-uk.html'
+end
+
+compile '/conference/**/*.html' do
+  filter :erb
+  layout '/userconference-uk.html'
+end
+
 
 # Default layout
 
