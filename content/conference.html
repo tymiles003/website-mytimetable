@@ -136,6 +136,12 @@ menuitem: userconf-introduction
             <h2>More information</h2>
 
             <div class="col-md-8 col-md-offset-2">
+                <h3>Latest news</h3>
+
+                <p id="uk-conference-latest-news">
+
+                </p>
+
                 <h3>Attending as a non-customer</h3>
 
                 <p>
@@ -166,9 +172,26 @@ menuitem: userconf-introduction
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <p>
-                    <em>Last update: 2016-01-04 20:30</em>
+                    <em>Last update: 2016-01-05 11:52</em>
                 </p>
             </div>
         </div>
     </div>
 </section>
+
+
+<script type="text/javascript">
+    var ukConferencePosts = function (data) {
+        var baseurl = 'https://blog.eveoh.nl';
+        var content = '<ul class="blogposts">';
+
+        for (var i = 0; i < data.length; i++) {
+            content += '<li><a class="title" href="' + baseurl + data[i].url + '" target="_blank">' + data[i].title + '</a></li>';
+        }
+
+        content += '</ul>';
+
+        document.getElementById('uk-conference-latest-news').innerHTML = content;
+    }
+</script>
+<script type="text/javascript" src="https://blog.eveoh.nl/ukConference.js"></script>
