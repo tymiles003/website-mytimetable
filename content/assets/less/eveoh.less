@@ -806,25 +806,30 @@ footer {
 }
 
 .session {
-
-  .session-speaker {
+  .session-speakers {
     margin-top: 25px;
 
-    .speaker-icon {
-      margin-right: 20px;
-    }
+    .session-speaker {
+      margin-bottom: 10px;
 
-    .speaker-name {
-      font-weight: bold;
-      display: block;
-    }
+      .speaker-icon {
+        padding-right: 15px;
+        padding-top: 2px;
+      }
 
-    .speaker-company {
-      display: block;
-    }
+      .speaker-name {
+        font-weight: bold;
+        display: block;
+      }
 
-    .speaker-function {
-      display: block;
+      .speaker-company {
+        display: block;
+        font-style: italic;
+      }
+
+      .speaker-position {
+        display: block;
+      }
     }
   }
 
@@ -903,6 +908,7 @@ footer {
   border-width: 0;
   color: #fff;
   margin: 0;
+  border-radius: 0;
 
   .alert-link {
     color: #fff;
